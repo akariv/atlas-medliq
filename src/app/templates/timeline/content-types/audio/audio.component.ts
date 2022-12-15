@@ -48,7 +48,7 @@ export class AudioComponent implements OnInit, OnChanges, AfterViewInit{
           this.sub.unsubscribe();
           this.sub = null;
         }
-      }  
+      }
     }
   }
 
