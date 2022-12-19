@@ -34,9 +34,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+              "src/styles.less",
+              "node_modules/slick-carousel/slick/slick.less",
+              "node_modules/slick-carousel/slick/slick-theme.less"
             ],
-            "scripts": []
+            "scripts": ["node_modules/slick-carousel/slick/slick.min.js"]
           },
           "configurations": {
             "production": {
@@ -99,9 +101,7 @@
               "src/favicons",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.less"
-            ],
+            "styles": ["src/styles.less"],
             "scripts": []
           }
         },
@@ -113,9 +113,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
