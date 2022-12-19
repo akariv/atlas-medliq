@@ -20,18 +20,42 @@ export class PaginationDirective {
     // .classList.remove('active');
     elm.classList.add('active');
     var index = elm.getAttribute('data-index');
-    $(".thumbnail-slick[data-index="+ index +"]").addClass('active');
-    if(index == $('.list li').length - 1){
-      $('.arrow-next').addClass('disaple');
-      $('.arrow-pre').removeClass('disaple');
+    // $(".thumbnail-slick[data-index="+ index +"]").addClass('active');
+    // if(index == $('.list li').length - 1){
+    //   $('.arrow-next').addClass('disaple');
+    //   $('.arrow-pre').removeClass('disaple');
+    // }
+    // if(index == 0){
+    //   $('.arrow-pre').addClass('disaple');
+    //   $('.arrow-next').removeClass('disaple');
+    // }
+    // if(index != 0 && index != $('.list li').length - 1 ){
+    //   $('.arrow-pre').removeClass('disaple');
+    //   $('.arrow-next').removeClass('disaple');
+    // }
+
+    const thumbnailSlick = document.querySelector(`.thumbnail-slick[data-index="${index}"]`);
+    thumbnailSlick.classList.add('active');
+
+    const arrowNext = document.querySelector('.arrow-next');
+    const arrowPre = document.querySelector('.arrow-pre');
+
+    const list = document.querySelector('.list');
+    const listItems = list.querySelectorAll('li');
+
+    if (index === listItems.length - 1) {
+      arrowNext.classList.add('disaple');
+      arrowPre.classList.remove('disaple');
     }
-    if(index == 0){
-      $('.arrow-pre').addClass('disaple');
-      $('.arrow-next').removeClass('disaple');
+
+    if (index === 0) {
+      arrowPre.classList.add('disaple');
+      arrowNext.classList.remove('disaple');
     }
-    if(index != 0 && index != $('.list li').length - 1 ){
-      $('.arrow-pre').removeClass('disaple');
-      $('.arrow-next').removeClass('disaple');
+
+    if (index !== 0 && index !== listItems.length - 1) {
+      arrowPre.classList.remove('disaple');
+      arrowNext.classList.remove('disaple');
     }
   }
 }
