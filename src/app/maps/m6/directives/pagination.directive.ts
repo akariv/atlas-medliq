@@ -1,37 +1,50 @@
-import { Directive,ElementRef,HostListener } from '@angular/core';
-import * as $ from 'jquery';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appPagination]'
+  selector: '[appPagination]',
 })
 export class PaginationDirective {
-
-  constructor(private el: ElementRef) {
-  }
+  constructor(private el: ElementRef) {}
   @HostListener('click')
-  pagination(){
+  pagination() {
     var elm = this.el.nativeElement;
-    Array.from(document.querySelectorAll('.list li.active')).forEach(function(elem) {
+    Array.from(document.querySelectorAll('.list li.active')).forEach(function (
+      elem
+    ) {
       elem.classList.remove('active');
     });
-    Array.from(document.querySelectorAll('.thumbnail-slick')).forEach(function(elem) {
+    Array.from(document.querySelectorAll('.thumbnail-slick')).forEach(function (
+      elem
+    ) {
       elem.classList.remove('active');
     });
-    // .classList.remove('active');
     elm.classList.add('active');
     var index = elm.getAttribute('data-index');
-    $(".thumbnail-slick[data-index="+ index +"]").addClass('active');
-    if(index == $('.list li').length - 1){
-      $('.arrow-next').addClass('disaple');
-      $('.arrow-pre').removeClass('disaple');
+
+    const thumbnailSlick = document.querySelector(
+      `.thumbnail-slick[data-index="${index}"]`
+    );
+    thumbnailSlick.classList.add('active');
+
+    const arrowNext = document.querySelector('.arrow-next');
+    const arrowPre = document.querySelector('.arrow-pre');
+
+    const list = document.querySelector('.list');
+    const listItems = list.querySelectorAll('li');
+
+    if (index === listItems.length - 1) {
+      arrowNext.classList.add('disaple');
+      arrowPre.classList.remove('disaple');
     }
-    if(index == 0){
-      $('.arrow-pre').addClass('disaple');
-      $('.arrow-next').removeClass('disaple');
+
+    if (index === 0) {
+      arrowPre.classList.add('disaple');
+      arrowNext.classList.remove('disaple');
     }
-    if(index != 0 && index != $('.list li').length - 1 ){
-      $('.arrow-pre').removeClass('disaple');
-      $('.arrow-next').removeClass('disaple');
+
+    if (index !== 0 && index !== listItems.length - 1) {
+      arrowPre.classList.remove('disaple');
+      arrowNext.classList.remove('disaple');
     }
   }
 }
