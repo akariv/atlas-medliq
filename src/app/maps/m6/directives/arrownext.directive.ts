@@ -1,25 +1,31 @@
-import { Directive,ElementRef,HostListener } from '@angular/core';
-import * as $ from 'jquery';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appArrownext]'
+  selector: '[appArrownext]',
 })
 export class ArrownextDirective {
-
-  constructor(private el: ElementRef) {
-  }
+  constructor(private el: ElementRef) {}
   @HostListener('click')
-  arrownext(){
-    var li = $('.list li.active').index();
-    if(li+1 < $('.list li').length){
-      var id = li+1;
-      $('.arrow-pre').removeClass('disaple');
-      $('.list li.active').removeClass('active');
-      $('.thumbnail-slick.active').removeClass('active');
-      $(".list li[data-index="+ id +"]").addClass('active');
-      $(".thumbnail-slick[data-index="+ id +"]").addClass('active');
-      if(id == $('.list li').length - 1){
-        $('.arrow-next').addClass('disaple');
+  arrownext() {
+    let actifElement = document.querySelector('.list li.active');
+    let actifElementIndex = Number(actifElement.getAttribute('data-index'));
+    if (actifElementIndex + 1 < document.querySelectorAll('.list li').length) {
+      let id = actifElementIndex + 1;
+      document.querySelector('.arrow-pre').classList.remove('disaple');
+      document
+        .querySelectorAll('.list li.active')[0]
+        .classList.remove('active');
+      document
+        .querySelectorAll('.thumbnail-slick.active')[0]
+        .classList.remove('active');
+      document
+        .querySelectorAll(`.list li[data-index="${id}"]`)[0]
+        .classList.add('active');
+      document
+        .querySelectorAll(`.thumbnail-slick[data-index="${id}"]`)[0]
+        .classList.add('active');
+      if (id == document.querySelectorAll('.list li').length - 1) {
+        document.querySelector('.arrow-next').classList.add('disaple');
       }
     }
   }
