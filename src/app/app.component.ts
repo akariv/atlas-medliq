@@ -16,6 +16,6 @@ export class AppComponent {
       const html = linkRenderer.call(renderer, href, title, text);
       return localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `);
     };
-    marked.use({renderer});
+    // marked.use({renderer});
   }
 }

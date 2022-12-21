@@ -1,32 +1,44 @@
-@import '../../../../common.less';
+@import "../../../../common.less";
 
 :host {
+  width: 100%;
+  height: 100%;
+
+  .content {
     width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
 
-    .content {
+    .map {
+      width: 100%;
+      height: 100%;
+
+      > div {
         width: 100%;
         height: 100%;
-        position: relative;
-        overflow: hidden;
-        
-        .map {
-            width: 100%;
+      }
+      // .mobile({
+      //     padding-bottom: 100px;
+      // });
+    }
+    .left {
+      .desktop({
+            top: 0;
+            left: 8px;
+            right: auto;
             height: 100%;
-
-            > div {
-                width: 100%;
-                height: 100%;    
+            width: auto;
+            transform: translateX(-100vw);
+            &.open {
+                transform: translateX(0);
             }
-            // .mobile({
-            //     padding-bottom: 100px;
-            // });
-        }
-
-        app-troubledwaters-infobar {
-            overflow: auto;
-            position: absolute;
-            .desktop({
+        });
+    }
+    app-troubledwaters-infobar {
+      overflow: auto;
+      position: absolute;
+      .desktop({
                 top: 0;
                 right: 8px;
                 height: 100%;
@@ -36,7 +48,7 @@
                     transform: translateX(0);
                 }
             });
-            .mobile({
+      .mobile({
                 bottom: 0;
                 right: 0;
                 width: 100%;
@@ -46,9 +58,8 @@
                     transform: translateY(0);
                 }
             });
-            transition-property: transform;
-            transition-duration: 500ms;
-        }    
-
+      transition-property: transform;
+      transition-duration: 500ms;
     }
+  }
 }
