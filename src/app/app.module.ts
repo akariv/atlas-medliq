@@ -9,7 +9,6 @@ import { WawbComponent } from './maps/m1wawb/wawb.component'
 import { WawbSidebarComponent } from './maps/m1wawb/sidebar/sidebar.component';
 import { PlayerComponent } from './player/player.component';
 import { WawbInfobarComponent } from './maps/m1wawb/infobar/infobar.component';
-import { SpecToursComponent } from './maps/m2spectours/spectours.component';
 import { PlaceholderComponent } from './templates/timeline/placeholder/placeholder.component';
 import { ContentComponent } from './templates/timeline/content/content.component';
 import { TwitterComponent } from './templates/timeline/content-types/twitter/twitter.component';
@@ -28,7 +27,6 @@ import { InfobarComponent } from './templates/talking-heads/infobar/infobar.comp
 import { MainPageComponent } from './main-page/main-page.component';
 import { TimelineMapComponent } from './templates/timeline/timeline-map/timeline-map.component';
 import { TalkingHeadsMapComponent } from './templates/talking-heads/talking-heads-map/talking-heads-map.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { M6Component } from './maps/m6/m6.component';
 import { SeclayoutComponent } from './maps/m6/seclayout/seclayout.component';
 import { PrevDirective } from './maps/m6/directives/prev.directive';
@@ -48,7 +46,6 @@ import { ShortcutDirective } from './maps/m6/directives/shortcut.directive';
     WawbComponent,
     WawbSidebarComponent,
     WawbInfobarComponent,
-    SpecToursComponent,
     PlaceholderComponent,
     ContentComponent,
     TwitterComponent,
@@ -81,7 +78,6 @@ import { ShortcutDirective } from './maps/m6/directives/shortcut.directive';
   imports: [
     BrowserModule,
     HttpClientModule,
-    SlickCarouselModule,
     AppRoutingModule
   ],
   providers: [
