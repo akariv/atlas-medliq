@@ -28,6 +28,10 @@ import { InfobarComponent } from './templates/talking-heads/infobar/infobar.comp
 import { MainPageComponent } from './main-page/main-page.component';
 import { TimelineMapComponent } from './templates/timeline/timeline-map/timeline-map.component';
 import { TalkingHeadsMapComponent } from './templates/talking-heads/talking-heads-map/talking-heads-map.component';
+import { IzmirWaterComponent } from './maps/izmir-water/izmir-water.component';
+import { IzmirWaterDetailPanelComponent } from './maps/izmir-water/detailpanel/detailpanel.component';
+import { IzmirWaterAboutUsComponent } from './maps/izmir-water/aboutus/aboutus.component';
+import { IzmirWaterLayoutComponent } from './maps/izmir-water/seclayout/izmir-water.seclayout.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,10 @@ import { TalkingHeadsMapComponent } from './templates/talking-heads/talking-head
     MainPageComponent,
     TimelineMapComponent,
     TalkingHeadsMapComponent,
+    IzmirWaterComponent,
+    IzmirWaterDetailPanelComponent,
+    IzmirWaterLayoutComponent,
+    IzmirWaterAboutUsComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [
