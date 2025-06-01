@@ -22,7 +22,7 @@ jobs:
         id: setup-ffmpeg
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.11'
       - name: Python deps
         run: pip install -r requirements.txt
       - name: git identity
